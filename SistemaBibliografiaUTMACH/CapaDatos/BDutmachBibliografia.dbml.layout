@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11.375, 12.875" name="BDutmachBibliografia">
+  <DataContextMoniker Name="/BDutmachBibliografiaDataContext" />
+  <nestedChildShapes>
+    <classShape Id="e1f5c267-65d1-4a05-8b99-674ccb3f35d3" absoluteBounds="6.125, 4.25, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/BDutmachBibliografiaDataContext/ActaArticulo" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ef70ee5c-2d26-4a24-bca1-3d7cd5a27a08" absoluteBounds="6.1400000000000006, 4.71, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b3b92cea-465c-4eb0-9010-deb568fc9d5a" absoluteBounds="6.375, 9.5, 2, 2.5401025390624987">
+      <DataClassMoniker Name="/BDutmachBibliografiaDataContext/RevistaCientifica" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7c4d794c-c717-4c62-ba97-3c9e6d62412c" absoluteBounds="6.3900000000000006, 9.96, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="83e39a27-92da-4285-b2cb-70b416c87614" absoluteBounds="3.375, 6.5, 2, 2.7324039713541666">
+      <DataClassMoniker Name="/BDutmachBibliografiaDataContext/ActaCongreso" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f7b77a14-1419-4dab-a162-4962541b9b44" absoluteBounds="3.39, 6.96, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="97da6c3c-5434-4a4e-b6b3-ed64fae847d0" absoluteBounds="3.375, 4, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/BDutmachBibliografiaDataContext/Articulo" />
+      <nestedChildShapes>
+        <elementListCompartment Id="78011882-9699-4ffb-9e52-25233d320f61" absoluteBounds="3.39, 4.46, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a156e288-d68a-4cf7-8813-7e44b14e1625" absoluteBounds="6.125, 2.25, 2, 1.1939925130208335">
+      <DataClassMoniker Name="/BDutmachBibliografiaDataContext/InformeArticulo" />
+      <nestedChildShapes>
+        <elementListCompartment Id="43ed9e06-6166-40ef-9534-b8cad4276b73" absoluteBounds="6.1400000000000006, 2.71, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3131ab05-5ea5-4113-be6e-3c48a1326fc9" absoluteBounds="3.375, 0.875, 2, 1.7708968098958329">
+      <DataClassMoniker Name="/BDutmachBibliografiaDataContext/InformeTecnico" />
+      <nestedChildShapes>
+        <elementListCompartment Id="51a951f5-65c8-4e15-9a54-e1c384a31783" absoluteBounds="3.39, 1.335, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9f990e88-b87e-47f4-a03a-fc12488cf904" absoluteBounds="3.375, 10.875, 2, 1.7708968098958344">
+      <DataClassMoniker Name="/BDutmachBibliografiaDataContext/Investigador" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e0df6cd5-5564-426c-bc54-d31b280cf19b" absoluteBounds="3.39, 11.335, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ce4c507f-9b76-448e-8c0c-f3b95edcd4ef" absoluteBounds="6.125, 6.25, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/BDutmachBibliografiaDataContext/InvestigadorArticulo" />
+      <nestedChildShapes>
+        <elementListCompartment Id="625f01af-87ea-4f2f-9088-cc0b4de770e2" absoluteBounds="6.1400000000000006, 6.71, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="30e3b987-5194-48e3-ae8b-68b02a4d7ed5" absoluteBounds="9.125, 4.25, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/BDutmachBibliografiaDataContext/RevistaArticulo" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0dcaadea-9846-4065-800d-13326cabb470" absoluteBounds="9.14, 4.71, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.375 : 6.5); (5.75 : 6.125); (5.75 : 4.84699625651042); (6.125 : 4.84699625651042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/BDutmachBibliografiaDataContext/ActaCongreso/ActaCongreso_ActaArticulo" />
+      <nodes>
+        <classShapeMoniker Id="83e39a27-92da-4285-b2cb-70b416c87614" />
+        <classShapeMoniker Id="e1f5c267-65d1-4a05-8b99-674ccb3f35d3" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.375 : 4.48599812825521); (6.125 : 4.48599812825521)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/BDutmachBibliografiaDataContext/Articulo/Articulo_ActaArticulo" />
+      <nodes>
+        <classShapeMoniker Id="97da6c3c-5434-4a4e-b6b3-ed64fae847d0" />
+        <classShapeMoniker Id="e1f5c267-65d1-4a05-8b99-674ccb3f35d3" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.375 : 4); (5.75 : 3.625); (5.75 : 3.81899251302083); (6.125 : 3.44399251302083)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/BDutmachBibliografiaDataContext/Articulo/Articulo_InformeArticulo" />
+      <nodes>
+        <classShapeMoniker Id="97da6c3c-5434-4a4e-b6b3-ed64fae847d0" />
+        <classShapeMoniker Id="a156e288-d68a-4cf7-8813-7e44b14e1625" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.375 : 2.44794840494792); (6.125 : 2.44794840494792)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/BDutmachBibliografiaDataContext/InformeTecnico/InformeTecnico_InformeArticulo" />
+      <nodes>
+        <classShapeMoniker Id="3131ab05-5ea5-4113-be6e-3c48a1326fc9" />
+        <classShapeMoniker Id="a156e288-d68a-4cf7-8813-7e44b14e1625" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.34949961313101 : 5.57859537760417); (5.69107443490112 : 5.92017019937428 : JumpStart); (5.80892556509888 : 6.03802132957204 : JumpEnd); (6.0625 : 6.29159576447316); (6.0625 : 6.1875); (6.125 : 6.25)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/BDutmachBibliografiaDataContext/Articulo/Articulo_InvestigadorArticulo" />
+      <nodes>
+        <classShapeMoniker Id="97da6c3c-5434-4a4e-b6b3-ed64fae847d0" />
+        <classShapeMoniker Id="ce4c507f-9b76-448e-8c0c-f3b95edcd4ef" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.375 : 12.3742496744792); (6.21875 : 12.3742496744792); (6.21875 : 7.44399251302083)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/BDutmachBibliografiaDataContext/Investigador/Investigador_InvestigadorArticulo" />
+      <nodes>
+        <classShapeMoniker Id="9f990e88-b87e-47f4-a03a-fc12488cf904" />
+        <classShapeMoniker Id="ce4c507f-9b76-448e-8c0c-f3b95edcd4ef" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.375 : 5.52152208318309); (5.90625 : 6.05277208318309); (5.90625 : 5.81899251302083); (8.75091745577925 : 5.81899251302083); (9.12591745577925 : 5.44399251302083)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/BDutmachBibliografiaDataContext/Articulo/Articulo_RevistaArticulo" />
+      <nodes>
+        <classShapeMoniker Id="97da6c3c-5434-4a4e-b6b3-ed64fae847d0" />
+        <classShapeMoniker Id="30e3b987-5194-48e3-ae8b-68b02a4d7ed5" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.375 : 10.7700512695312); (10.1567112278896 : 10.7700512695312); (10.1567112278896 : 5.44399251302083)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/BDutmachBibliografiaDataContext/RevistaCientifica/RevistaCientifica_RevistaArticulo" />
+      <nodes>
+        <classShapeMoniker Id="b3b92cea-465c-4eb0-9010-deb568fc9d5a" />
+        <classShapeMoniker Id="30e3b987-5194-48e3-ae8b-68b02a4d7ed5" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

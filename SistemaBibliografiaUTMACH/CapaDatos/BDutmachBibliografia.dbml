@@ -1,0 +1,469 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="UtmachBibliografia" Class="BDutmachBibliografiaDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-124BMP9;Initial Catalog=UtmachBibliografia;Integrated Security=True" SettingsObjectName="CapaDatos.Properties.Settings" SettingsPropertyName="UtmachBibliografiaConnectionString1" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.ActaArticulo" Member="ActaArticulo">
+    <Type Name="ActaArticulo">
+      <Column Name="id_actacongreso" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="id_articulo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="ActaCongreso_ActaArticulo" Member="ActaCongreso" ThisKey="id_actacongreso" OtherKey="id_actacongreso" Type="ActaCongreso" IsForeignKey="true" />
+      <Association Name="Articulo_ActaArticulo" Member="Articulo" ThisKey="id_articulo" OtherKey="id_articulo" Type="Articulo" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.RevistaCientifica" Member="RevistaCientifica">
+    <Type Name="RevistaCientifica">
+      <Column Name="id_revista" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Editor" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="AnioInicioPublicacion" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Frecuencia" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Temas" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Numero" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AnioPublicacionActual" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Costo" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Association Name="RevistaCientifica_RevistaArticulo" Member="RevistaArticulo" ThisKey="id_revista" OtherKey="IdRevista" Type="RevistaArticulo" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ActaCongreso" Member="ActaCongreso">
+    <Type Name="ActaCongreso">
+      <Column Name="id_actacongreso" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NombreCongreso" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Edicion" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CiudadCelebracion" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="FechaInicio" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="FechaFinalizacion" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="TipoCongreso" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="Pais" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="AñoPrimeraCelebracion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Frecuencia" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="ActaCongreso_ActaArticulo" Member="ActaArticulo" ThisKey="id_actacongreso" OtherKey="id_actacongreso" Type="ActaArticulo" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Articulo" Member="Articulo">
+    <Type Name="Articulo">
+      <Column Name="id_articulo" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Titulo" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="PalabrasClave" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="Contactos" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Association Name="Articulo_ActaArticulo" Member="ActaArticulo" ThisKey="id_articulo" OtherKey="id_articulo" Type="ActaArticulo" />
+      <Association Name="Articulo_InformeArticulo" Member="InformeArticulo" ThisKey="id_articulo" OtherKey="id_articulo" Type="InformeArticulo" />
+      <Association Name="Articulo_InvestigadorArticulo" Member="InvestigadorArticulo" ThisKey="id_articulo" OtherKey="id_articulo" Type="InvestigadorArticulo" />
+      <Association Name="Articulo_RevistaArticulo" Member="RevistaArticulo" ThisKey="id_articulo" OtherKey="IdArticulo" Type="RevistaArticulo" />
+    </Type>
+  </Table>
+  <Table Name="dbo.InformeArticulo" Member="InformeArticulo">
+    <Type Name="InformeArticulo">
+      <Column Name="id_informe" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="id_articulo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Articulo_InformeArticulo" Member="Articulo" ThisKey="id_articulo" OtherKey="id_articulo" Type="Articulo" IsForeignKey="true" />
+      <Association Name="InformeTecnico_InformeArticulo" Member="InformeTecnico" ThisKey="id_informe" OtherKey="id_informe" Type="InformeTecnico" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.InformeTecnico" Member="InformeTecnico">
+    <Type Name="InformeTecnico">
+      <Column Name="id_informe" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Numero" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="CentroPublicacion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="MesPublicacion" Type="System.String" DbType="VarChar(60)" CanBeNull="true" />
+      <Column Name="AñoPublicacion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Association Name="InformeTecnico_InformeArticulo" Member="InformeArticulo" ThisKey="id_informe" OtherKey="id_informe" Type="InformeArticulo" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Investigador" Member="Investigador">
+    <Type Name="Investigador">
+      <Column Name="id_investigador" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="CentroTrabajo" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Correo" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Temas" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Association Name="Investigador_InvestigadorArticulo" Member="InvestigadorArticulo" ThisKey="id_investigador" OtherKey="id_investigador" Type="InvestigadorArticulo" />
+    </Type>
+  </Table>
+  <Table Name="dbo.InvestigadorArticulo" Member="InvestigadorArticulo">
+    <Type Name="InvestigadorArticulo">
+      <Column Name="id_investigador" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="id_articulo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Articulo_InvestigadorArticulo" Member="Articulo" ThisKey="id_articulo" OtherKey="id_articulo" Type="Articulo" IsForeignKey="true" />
+      <Association Name="Investigador_InvestigadorArticulo" Member="Investigador" ThisKey="id_investigador" OtherKey="id_investigador" Type="Investigador" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.RevistaArticulo" Member="RevistaArticulo">
+    <Type Name="RevistaArticulo">
+      <Column Name="IdRevista" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdArticulo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Articulo_RevistaArticulo" Member="Articulo" ThisKey="IdArticulo" OtherKey="id_articulo" Type="Articulo" IsForeignKey="true" />
+      <Association Name="RevistaCientifica_RevistaArticulo" Member="RevistaCientifica" ThisKey="IdRevista" OtherKey="id_revista" Type="RevistaCientifica" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.CP_ActualizarArticulo" Method="CP_ActualizarArticulo">
+    <Parameter Name="Id" Parameter="id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Titulo" Parameter="titulo" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="PalabrasClaves" Parameter="palabrasClaves" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Contactos" Parameter="contactos" Type="System.String" DbType="VarChar(100)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.CP_EliminarArticulo" Method="CP_EliminarArticulo">
+    <Parameter Name="Id" Parameter="id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.CP_InsertarArticulo" Method="CP_InsertarArticulo">
+    <Parameter Name="id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Titulo" Parameter="titulo" Type="System.String" DbType="VarChar(150)" />
+    <Parameter Name="PalabrasClave" Parameter="palabrasClave" Type="System.String" DbType="VarChar(300)" />
+    <Parameter Name="Contactos" Parameter="contactos" Type="System.String" DbType="VarChar(100)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.CP_ListarArticulo" Method="CP_ListarArticulo">
+    <ElementType Name="CP_ListarArticuloResult">
+      <Column Name="id_articulo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Titulo" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="PalabrasClave" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="Contactos" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CP_listararticulosFiltro" Method="CP_listararticulosFiltro">
+    <Parameter Name="valor" Type="System.String" DbType="VarChar(25)" />
+    <ElementType Name="CP_listararticulosFiltroResult">
+      <Column Name="id_articulo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Titulo" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="PalabrasClave" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+      <Column Name="Contactos" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CP_ActualizarActaCongreso" Method="CP_ActualizarActaCongreso">
+    <Parameter Name="Id" Parameter="id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Nombre" Parameter="nombre" Type="System.String" DbType="VarChar(200)" />
+    <Parameter Name="Edicion" Parameter="edicion" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="CiudadCelebracion" Parameter="ciudadCelebracion" Type="System.String" DbType="VarChar(150)" />
+    <Parameter Name="FechaInicio" Parameter="fechaInicio" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="FechaFinalizacion" Parameter="fechaFinalizacion" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="TipoCongreso" Parameter="tipoCongreso" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Pais" Parameter="pais" Type="System.String" DbType="VarChar(150)" />
+    <Parameter Name="AñoPrimeraCelebracion" Parameter="añoPrimeraCelebracion" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="Frecuencia" Parameter="frecuencia" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.CP_ActualizarInformeTecnico" Method="CP_ActualizarInformeTecnico">
+    <Parameter Name="Id" Parameter="id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Numero" Parameter="numero" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="CentroPublicacion" Parameter="centroPublicacion" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="MesPublicacion" Parameter="mesPublicacion" Type="System.String" DbType="VarChar(60)" />
+    <Parameter Name="AñoPublicacion" Parameter="añoPublicacion" Type="System.String" DbType="VarChar(100)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.CP_ActualizarInvestigador" Method="CP_ActualizarInvestigador">
+    <Parameter Name="id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Nombre" Parameter="nombre" Type="System.String" DbType="VarChar(25)" />
+    <Parameter Name="centro" Type="System.String" DbType="VarChar(25)" />
+    <Parameter Name="correo" Type="System.String" DbType="VarChar(25)" />
+    <Parameter Name="temas" Type="System.String" DbType="VarChar(25)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.CP_ActualizarRevistaCientifica" Method="CP_ActualizarRevistaCientifica">
+    <Parameter Name="Id" Parameter="id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Nombre" Parameter="nombre" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Editor" Parameter="editor" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="AnioInicioPublicacion" Parameter="anioInicioPublicacion" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Frecuencia" Parameter="frecuencia" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Temas" Parameter="temas" Type="System.String" DbType="VarChar(200)" />
+    <Parameter Name="Numero" Parameter="numero" Type="System.Int32" DbType="Int" />
+    <Parameter Name="AnioPublicacion" Parameter="anioPublicacion" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Costo" Parameter="costo" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.CP_EliminarActaCongreso" Method="CP_EliminarActaCongreso">
+    <Parameter Name="Id" Parameter="id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.CP_EliminarInformeTecnico" Method="CP_EliminarInformeTecnico">
+    <Parameter Name="Id" Parameter="id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Cp_EliminarInvestigador" Method="Cp_EliminarInvestigador">
+    <Parameter Name="id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.CP_EliminarRevistaCientifica" Method="CP_EliminarRevistaCientifica">
+    <Parameter Name="Id" Parameter="id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.CP_InsertarActaCongreso" Method="CP_InsertarActaCongreso">
+    <Parameter Name="Id" Parameter="id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Nombre" Parameter="nombre" Type="System.String" DbType="VarChar(200)" />
+    <Parameter Name="Edicion" Parameter="edicion" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="CiudadCelebracion" Parameter="ciudadCelebracion" Type="System.String" DbType="VarChar(150)" />
+    <Parameter Name="FechaInicio" Parameter="fechaInicio" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="FechaFinalizacion" Parameter="fechaFinalizacion" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="TipoCongreso" Parameter="tipoCongreso" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Pais" Parameter="pais" Type="System.String" DbType="VarChar(150)" />
+    <Parameter Name="AñoPrimeraCelebracion" Parameter="añoPrimeraCelebracion" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="Frecuencia" Parameter="frecuencia" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.CP_InsertarInformeTecnico" Method="CP_InsertarInformeTecnico">
+    <Parameter Name="Id" Parameter="id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Numero" Parameter="numero" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="CentroPublicacion" Parameter="centroPublicacion" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="MesPublicacion" Parameter="mesPublicacion" Type="System.String" DbType="VarChar(60)" />
+    <Parameter Name="AñoPublicacion" Parameter="añoPublicacion" Type="System.String" DbType="VarChar(100)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.CP_InsertarInvestigador" Method="CP_InsertarInvestigador">
+    <Parameter Name="id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Nombre" Parameter="nombre" Type="System.String" DbType="VarChar(25)" />
+    <Parameter Name="centro" Type="System.String" DbType="VarChar(25)" />
+    <Parameter Name="correo" Type="System.String" DbType="VarChar(25)" />
+    <Parameter Name="temas" Type="System.String" DbType="VarChar(25)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.CP_listaractaCongresoFiltro" Method="CP_listaractaCongresoFiltro">
+    <Parameter Name="valor" Type="System.String" DbType="VarChar(25)" />
+    <ElementType Name="CP_listaractaCongresoFiltroResult">
+      <Column Name="id_actacongreso" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NombreCongreso" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Edicion" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CiudadCelebracion" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="FechaInicio" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="FechaFinalizacion" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="TipoCongreso" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="Pais" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="AñoPrimeraCelebracion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Frecuencia" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CP_listarinformeTecnicoFiltro" Method="CP_listarinformeTecnicoFiltro">
+    <Parameter Name="valor" Type="System.String" DbType="VarChar(25)" />
+    <ElementType Name="CP_listarinformeTecnicoFiltroResult">
+      <Column Name="id_informe" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Numero" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="CentroPublicacion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="MesPublicacion" Type="System.String" DbType="VarChar(60)" CanBeNull="true" />
+      <Column Name="AñoPublicacion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CP_ListarInvestigador" Method="CP_ListarInvestigador">
+    <ElementType Name="CP_ListarInvestigadorResult">
+      <Column Name="id_investigador" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="CentroTrabajo" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Correo" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Temas" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CP_ListarInvestigadorFiltro" Method="CP_ListarInvestigadorFiltro">
+    <Parameter Name="valor" Type="System.String" DbType="VarChar(25)" />
+    <ElementType Name="CP_ListarInvestigadorFiltroResult">
+      <Column Name="id_investigador" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="CentroTrabajo" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Correo" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Temas" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CP_listarRevistaCientificaFiltro" Method="CP_listarRevistaCientificaFiltro">
+    <Parameter Name="valor" Type="System.String" DbType="VarChar(25)" />
+    <ElementType Name="CP_listarRevistaCientificaFiltroResult">
+      <Column Name="id_revista" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Editor" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="AnioInicioPublicacion" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Frecuencia" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Temas" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Numero" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AnioPublicacionActual" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Costo" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CP_ListarInformeTecnico" Method="CP_ListarInformeTecnico">
+    <ElementType Name="CP_ListarInformeTecnicoResult">
+      <Column Name="id_informe" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Numero" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="CentroPublicacion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="MesPublicacion" Type="System.String" DbType="VarChar(60)" CanBeNull="true" />
+      <Column Name="AñoPublicacion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CP_ListarRevistaCientifica" Method="CP_ListarRevistaCientifica">
+    <ElementType Name="CP_ListarRevistaCientificaResult">
+      <Column Name="id_revista" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Editor" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="AnioInicioPublicacion" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Frecuencia" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Temas" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Numero" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AnioPublicacionActual" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Costo" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CP_InsertarRevistaCientifica" Method="CP_InsertarRevistaCientifica">
+    <Parameter Name="id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="nombre" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="editor" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="anioinicio" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="frecuencia" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="temas" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="numero" Type="System.Int32" DbType="Int" />
+    <Parameter Name="aniopublicacionactual" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="costo" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.CP_ListarActaCongreso" Method="CP_ListarActaCongreso">
+    <ElementType Name="CP_ListarActaCongresoResult">
+      <Column Name="id_actacongreso" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NombreCongreso" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Edicion" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CiudadCelebracion" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="FechaInicio" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="FechaFinalizacion" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="TipoCongreso" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="Pais" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="AñoPrimeraCelebracion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Frecuencia" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CP_InsertarInvestigador_Articulo" Method="CP_InsertarInvestigador_Articulo">
+    <Parameter Name="ID_investigador" Parameter="iD_investigador" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ID_articulo" Parameter="iD_articulo" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.CP_ListarInvestigador_Articulo" Method="CP_ListarInvestigador_Articulo">
+    <ElementType Name="CP_ListarInvestigador_ArticuloResult">
+      <Column Name="id_investigador" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="id_articulo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CP_ListarInvestigador_ArticuloFiltro" Method="CP_ListarInvestigador_ArticuloFiltro">
+    <Parameter Name="value" Type="System.String" DbType="VarChar(2)" />
+    <ElementType Name="CP_ListarInvestigador_ArticuloFiltroResult">
+      <Column Name="id_investigador" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="id_articulo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CP_ListarInvestigadores_Articulos" Method="CP_ListarInvestigadores_Articulos">
+    <ElementType Name="CP_ListarInvestigadores_ArticulosResult">
+      <Column Name="id_articulo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Titulo" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="id_investigador" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CP_EliminarInvestigadorArticulo" Method="CP_EliminarInvestigadorArticulo">
+    <Parameter Name="ID_articulo" Parameter="iD_articulo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ID_investigador" Parameter="iD_investigador" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.CP_EliminarActaArticulo" Method="CP_EliminarActaArticulo">
+    <Parameter Name="idacta" Type="System.Int32" DbType="Int" />
+    <Parameter Name="idarticulo" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.CP_EliminarInformeArticulo" Method="CP_EliminarInformeArticulo">
+    <Parameter Name="idinforme" Type="System.Int32" DbType="Int" />
+    <Parameter Name="idarticulo" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.CP_EliminarRevistaArticulo" Method="CP_EliminarRevistaArticulo">
+    <Parameter Name="idacta" Type="System.Int32" DbType="Int" />
+    <Parameter Name="idarticulo" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.CP_InsertarActaArticulo" Method="CP_InsertarActaArticulo">
+    <Parameter Name="idacta" Type="System.Int32" DbType="Int" />
+    <Parameter Name="idarticulo" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.CP_InsertarInformeArticulo" Method="CP_InsertarInformeArticulo">
+    <Parameter Name="idinforme" Type="System.Int32" DbType="Int" />
+    <Parameter Name="idarticulo" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.CP_InsertRevistaArticulo" Method="CP_InsertRevistaArticulo">
+    <Parameter Name="idrevista" Type="System.Int32" DbType="Int" />
+    <Parameter Name="idarticulo" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.CP_ListarActaArticulo" Method="CP_ListarActaArticulo">
+    <ElementType Name="CP_ListarActaArticuloResult">
+      <Column Name="id_actacongreso" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="id_articulo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CP_ListarActaArticuloFiltro" Method="CP_ListarActaArticuloFiltro">
+    <Parameter Name="value" Type="System.String" DbType="VarChar(4)" />
+    <ElementType Name="CP_ListarActaArticuloFiltroResult">
+      <Column Name="id_actacongreso" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="id_articulo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CP_ListarInformeArticulo" Method="CP_ListarInformeArticulo">
+    <ElementType Name="CP_ListarInformeArticuloResult">
+      <Column Name="id_informe" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="id_articulo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CP_ListarInformeArticuloFiltro" Method="CP_ListarInformeArticuloFiltro">
+    <Parameter Name="value" Type="System.String" DbType="VarChar(4)" />
+    <ElementType Name="CP_ListarInformeArticuloFiltroResult">
+      <Column Name="id_informe" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="id_articulo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CP_ListarV2RevistaArticulo" Method="CP_ListarV2RevistaArticulo">
+    <ElementType Name="CP_ListarV2RevistaArticuloResult">
+      <Column Name="id_articulo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Titulo" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="id_revista" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Editor" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Costo" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CP_ListarV2InformeArticulo" Method="CP_ListarV2InformeArticulo">
+    <ElementType Name="CP_ListarV2InformeArticuloResult">
+      <Column Name="id_informe" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Numero" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="id_articulo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Titulo" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="CentroPublicacion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CP_ListarV2ActaArticulo" Method="CP_ListarV2ActaArticulo">
+    <ElementType Name="CP_ListarV2ActaArticuloResult">
+      <Column Name="id_articulo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Titulo" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="id_actacongreso" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NombreCongreso" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Edicion" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Frecuencia" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CP_ListarRevistaArticulo" Method="CP_ListarRevistaArticulo">
+    <ElementType Name="CP_ListarRevistaArticuloResult">
+      <Column Name="IdRevista" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdArticulo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CP_ActualizarInvestigadorArticulo" Method="CP_ActualizarInvestigadorArticulo">
+    <Parameter Name="ID_investigador" Parameter="iD_investigador" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ID_articulo" Parameter="iD_articulo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="aux_inv" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.CP_ActualizarActaArticulo" Method="CP_ActualizarActaArticulo">
+    <Parameter Name="idacta" Type="System.Int32" DbType="Int" />
+    <Parameter Name="idarticulo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="auxacta" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.CP_ActualizarInformeArticulo" Method="CP_ActualizarInformeArticulo">
+    <Parameter Name="idinforme" Type="System.Int32" DbType="Int" />
+    <Parameter Name="idarticulo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="auxinf" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.CP_ActualizarRevistaArticulo" Method="CP_ActualizarRevistaArticulo">
+    <Parameter Name="idrevista" Type="System.Int32" DbType="Int" />
+    <Parameter Name="idarticulo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="auxrev" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>
